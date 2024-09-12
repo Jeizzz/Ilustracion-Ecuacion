@@ -1,0 +1,45 @@
+# Importamos las bibliotecas necesarias
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definimos la función de la curva, que es una parábola: y = 3x^2 + 4x - 1
+def funcion(x):
+    return 3*x**2 + 4*x - 1
+
+# Definimos la recta tangente: y = 10x - 4, que obtuvimos en cálculos anteriores
+def recta_tangente(x):
+    return 10*x - 4
+
+# Creamos un rango de valores de x para graficar desde -2 hasta 2
+x_vals = np.linspace(-2, 2, 400)
+
+# Configuramos el tamaño de la figura para hacer el gráfico más visible
+plt.figure(figsize=(8,6))
+
+# Graficamos la curva, cambiando su color a púrpura
+plt.plot(x_vals, funcion(x_vals), label='Curva: y = 3x^2 + 4x - 1', color='purple')
+
+# Graficamos la recta tangente, con un estilo de línea discontinua y color naranja
+plt.plot(x_vals, recta_tangente(x_vals), label='Recta tangente: y = 10x - 4', color='orange', linestyle='--')
+
+# Marcamos el punto de tangencia (1,6) con un marcador verde
+plt.scatter(1, 6, color='green', zorder=5)
+plt.text(1.05, 6, "(1, 6)", fontsize=12)
+
+# Añadimos título, etiquetas y leyenda para una mejor descripción del gráfico
+plt.title('Gráfico de la curva y su recta tangente en (1, 6)')
+plt.xlabel('x')
+plt.ylabel('y')
+
+# Añadimos las líneas del eje x e y en color negro
+plt.axhline(0, color='black',linewidth=1)
+plt.axvline(0, color='black',linewidth=1)
+
+# Mostramos una cuadrícula para facilitar la visualización
+plt.grid(True)
+
+# Mostramos la leyenda para distinguir la curva de la recta tangente
+plt.legend()
+
+# Finalmente, mostramos el gráfico
+plt.show()
